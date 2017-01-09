@@ -58,6 +58,13 @@ public:
             .property("y", &glm::vec2::y)
             .function("Add", &glm::vec2::Add, ponder::policy::ReturnCopy())
 				.tag("__add")
+            .function("Subtract", &glm::vec2::Subtract, ponder::policy::ReturnCopy())
+                .tag("__sub")
+            .function("Multiply", &glm::vec2::Multiply, ponder::policy::ReturnCopy())
+                .tag("__mul")
+            .function("Divide", &glm::vec2::Divide, ponder::policy::ReturnCopy())
+                .tag("_div")
+
             ;
 
         ponder::lua::expose<glm::vec2>(LuaState::L, "vec2");

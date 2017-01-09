@@ -201,9 +201,25 @@ namespace glm
 		template <typename U> 
 		GLM_FUNC_DECL tvec2<T, P> & operator>>=(tvec2<U, P> const & v);
 		
-		type Add(const type& v2)
+		// Sandbox extension
+		type Add(const type& v)
 		{
-			return *this + v2;
+			return *this + v;
+		}
+
+		type Subtract(const type& v)
+		{
+			return *this - v;
+		}
+
+		type Divide(const type& v)
+		{
+			return *this / v;
+		}
+
+		type Multiply(const type& v)
+		{
+			return *this * v;
 		}
 	};
 

@@ -1,3 +1,5 @@
+print("OS = " .. os.get())
+
 solution "Sandbox"
     configurations {"Debug", "Release"}
 
@@ -15,16 +17,24 @@ solution "Sandbox"
         "PONDER_USING_LUA=1",
         "PONDER_USES_LUA_IMPL",
         "PONDER_USES_RUNTIME_IMPL",
-        "PONDER_STATIC",
-        "WIN32"
+        "PONDER_STATIC"
     }
+
+    if os.get() == "windows" then
+        defines {
+            "WIN32"
+        }
+    end
 
     configuration "Debug"
         targetdir "Bin/Debug"
 
-        flags {
-            "Symbols"   -- Debug symbols
-        }
+        if os.get() == "windows" then
+
+            flags {
+                "Symbols"   -- Debug symbols
+            }
+        end
 
     configuration "Release"
         targetdir "Bin/Release"
