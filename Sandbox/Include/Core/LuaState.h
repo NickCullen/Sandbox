@@ -6,10 +6,12 @@ extern "C" {
     #include <lauxlib.h>
 }
 
+#include "SandboxAPI.h"
+
 /** 
  * Responsible for maining LuaState and various lua methods 
  */
-class LuaState
+class SANDBOX_API LuaState
 {
 private:
 

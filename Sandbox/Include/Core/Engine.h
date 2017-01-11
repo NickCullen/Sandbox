@@ -1,7 +1,8 @@
 #pragma once
 
+#include "SandboxAPI.h"
 
-class Engine
+class SANDBOX_API Engine
 {
 private:
 

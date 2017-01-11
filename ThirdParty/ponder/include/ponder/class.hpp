@@ -105,7 +105,7 @@ class ClassVisitor;
  *
  * \sa Enum, TagHolder, ClassBuilder, Function, Property
  */
-class PONDER_API Class : public TagHolder, detail::noncopyable
+class Class : public TagHolder, detail::noncopyable
 {
     /**
      * \brief Structure holding informations about a base metaclass

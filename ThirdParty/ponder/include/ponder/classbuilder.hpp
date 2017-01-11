@@ -61,7 +61,7 @@ namespace ponder {
  * need to split the metaclass creation in multiple parts.
  */
 template <typename T>
-class ClassBuilder
+class PONDER_API ClassBuilder
 {
 public:
     

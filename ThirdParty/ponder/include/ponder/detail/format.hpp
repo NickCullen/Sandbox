@@ -330,7 +330,7 @@ typedef BasicStringRef<wchar_t> WStringRef;
   \endrst
  */
 template <typename Char>
-class BasicCStringRef {
+class PONDER_API BasicCStringRef {
  private:
   const Char *data_;
 

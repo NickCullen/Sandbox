@@ -1,26 +1,16 @@
 #include "Core/Engine.h"
 #include "Core/LuaState.h"
+#include "Math/MathLib.h"
 
-// Reflection library
-#include <ponder/classbuilder.hpp>
-#include <ponder/uses/lua.hpp>
 
-// Required for serialization extenral classes
-#include <cereal/cereal.hpp>
-#include <cereal/archives/json.hpp>
-
-#include <glm.hpp>
-#include "ThirdPartyGlue/InitGLM.h"
-
-#include <fstream>
 
 bool Engine::Initialize()
 {   
     if(!LuaState::Initialize())
         return false;
 
-    if(!GLMInitializer::Initialize())
-        return false;
+	Mathf::Initialize();
+	Vector2f::Initialize();
 
     return true;
 } 
@@ -28,6 +18,7 @@ bool Engine::Initialize()
 
 void Engine::DoTests()
 {
+
     /*glm::vec2 v2 = glm::vec2(33, 15);
     const ponder::Class& v2Class = ponder::classByObject(v2);
     ponder::UserObject o = v2Class.getUserObjectFromPointer(&v2);

@@ -1,5 +1,8 @@
 // Do not include this file directly - include via "Sandbox.h"
 
+/*
+#include "glm.hpp"
+
 namespace glm
 {
     // Vec2 serialization
@@ -41,9 +44,6 @@ PONDER_TYPE(glm::vec2);
 PONDER_TYPE(glm::vec3);
 PONDER_TYPE(glm::vec4);
 
-/**
- * Used to glue together the GLM library with the reflection library
- */
 class GLMInitializer
 {
 public:
@@ -95,3 +95,5 @@ public:
         return true;
     }
 };
+
+*/

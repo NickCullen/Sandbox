@@ -7,7 +7,6 @@ solution "Sandbox"
 
     includedirs {
         "ThirdParty",
-        "ThirdParty/glm",
         "ThirdParty/ponder/include",
         "ThirdParty/lua",
         "Sandbox/Include"
@@ -16,7 +15,7 @@ solution "Sandbox"
     defines {
         "PONDER_USING_LUA=1",
         "PONDER_USES_LUA_IMPL",
-        "PONDER_USES_RUNTIME_IMPL",
+       -- "PONDER_USES_RUNTIME_IMPL",
         "PONDER_STATIC"
     }
 
@@ -43,20 +42,27 @@ solution "Sandbox"
             "Optimize"
         }
 
+    -----------------------------------------
+
 
     -- lua scriptinglibrary
     project "lua"
-        kind "StaticLib"
+        kind "SharedLib"
         language "C"
 
         location "Build"
 
+        configuration "SharedLib"
+            defines "LUA_BUILD_AS_DLL"
+        configuration {}
         files {
             "ThirdParty/lua/**.*"
         }
 
         excludes {
-            "**._*"
+            "**._*",
+            "**/luac.c",
+            "**/lua.c"
         }
 
     -----------------------------------------
@@ -72,6 +78,10 @@ solution "Sandbox"
 
 
         location "Build"
+
+        configuration "SharedLib"
+            defines "PONDER_EXPORTS"
+        configuration {}
 
         links {
             "lua"
@@ -101,9 +111,7 @@ solution "Sandbox"
         location "Build"
 
         links {
-            "Sandbox",
-            "Ponder",
-            "lua"
+            "Sandbox"
         }
 
         files {
@@ -118,12 +126,18 @@ solution "Sandbox"
 
     -- Sandbox Library
     project "Sandbox"
-        kind "StaticLib"
+        kind "SharedLib"
         language "C++"
 
         buildoptions {
             "-std=c++14",
         }
+
+        configuration "SharedLib"
+            defines {
+                "SANDBOX_EXPORTS"
+            }
+        configuration {}
 
         location "Build"
 
