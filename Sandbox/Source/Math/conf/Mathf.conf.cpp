@@ -10,7 +10,7 @@ PONDER_TYPE(Mathf);
 void Mathf::Initialize()
 {
 	ponder::Class::declare<Mathf>()
-		.property("Pi", &Mathf::Pi)
+		//.property("Pi", &Mathf::Pi)
 		//.property("Epsilon", &Mathf::Epsilon)
 		.function("IsZero", &Mathf::IsZero)
 		.function("CompareFloats", &Mathf::CompareFloats)
