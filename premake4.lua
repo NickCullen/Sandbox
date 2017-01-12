@@ -15,7 +15,7 @@ solution "Sandbox"
     defines {
         "PONDER_USING_LUA=1",
         "PONDER_USES_LUA_IMPL",
-       -- "PONDER_USES_RUNTIME_IMPL",
+        "PONDER_USES_RUNTIME_IMPL",
         "PONDER_STATIC"
     }
 
@@ -151,7 +151,8 @@ solution "Sandbox"
         }
 
         excludes {
-            "**._*"
+            "**._*",
+            "**conf*"
         }
     ----------------------------------------
 
