@@ -1,9 +1,8 @@
 print("OS = " .. _OS:upper())
-
 solution "Sandbox"
     configurations {"Debug", "Release", "EditorDebug", "EditorRelease"}
     
-    location "Build"
+    location (_MAIN_SCRIPT_DIR .. "/Build")
 
     includedirs {
         "ThirdParty",
@@ -20,14 +19,20 @@ solution "Sandbox"
         "SANDBOX_" .. _OS:upper()
     }
 
+    filter{"language:C++"}
+        buildoptions {
+            "-std=c++14",
+        }
+    filter {}
 
     configuration "windows"
         defines {
             "WIN32",
         }
-   
+    configuration {}
+
     configuration "Debug"
-        targetdir "Bin/Debug"
+        targetdir (_MAIN_SCRIPT_DIR .. "/Bin/Debug")
 
         flags {
             "Symbols"   -- Debug symbols
@@ -37,9 +42,10 @@ solution "Sandbox"
             "DEBUG",
             "SANDBOX_DEBUG"
         }
+    configuration {}
 
     configuration "Release"
-        targetdir "Bin/Release"
+        targetdir (_MAIN_SCRIPT_DIR .. "/Bin/Release")
 
         flags {
             "Optimize"
@@ -49,9 +55,10 @@ solution "Sandbox"
             "NDEBUG",
             "SANDBOX_RELEASE"
         }
+    configuration {}
 
     configuration "EditorDebug"
-        targetdir "Bin/Editor/Debug"
+        targetdir (_MAIN_SCRIPT_DIR .. "/Bin/Editor/Debug")
 
         flags {
             "Symbols"   -- Debug symbols
@@ -65,8 +72,10 @@ solution "Sandbox"
         
         include "sb"
 
+    configuration {}
+
     configuration "EditorRelease"
-        targetdir "Bin/Editor/Release"
+        targetdir (_MAIN_SCRIPT_DIR .. "/Bin/Editor/Release")
 
         flags {
             "Optimize"
@@ -79,6 +88,8 @@ solution "Sandbox"
         }
 
         include "sb"
+    
+    configuration {}
     
     -----------------------------------------
 

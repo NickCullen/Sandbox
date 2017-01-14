@@ -2,12 +2,6 @@ project "sb"
     kind "ConsoleApp"
     language "C++"
     
-    location "../Build"
-
-    buildoptions {
-        "-std=c++14",
-    }
-
     links {
         "Ponder",
         "lua",

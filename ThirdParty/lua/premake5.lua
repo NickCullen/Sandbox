@@ -1,13 +1,11 @@
 project "lua"
     kind "SharedLib"
     language "C"
-
-    location "../Build"
-
-    configuration "SharedLib"
-        defines "LUA_BUILD_AS_DLL"
-    configuration {}
-
+    
+    --[[configurations {"windows", "SharedLib"}
+       defines "LUA_BUILD_AS_DLL"
+    configurations {}
+    ]]--
     files {
         "**.*"
     }

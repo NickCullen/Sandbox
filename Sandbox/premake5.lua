@@ -2,12 +2,6 @@ project "Sandbox"
     kind "SharedLib"
     language "C++"
     
-    location "../Build"
-
-    buildoptions {
-        "-std=c++14",
-    }
-
     links {
         "Ponder",
         "lua"
@@ -29,6 +23,12 @@ project "Sandbox"
         }
     configuration {}
 
+    --linkoptions{ "-L%{cfg.targetdir}" }
+    --linkoptions{ "-Wl,-rpath=./" }
+
+    filter { "kind:SharedLib", "system:macosx" }
+        linkoptions { '-Wl,-install_name', '-Wl,@loader_path/%{cfg.linktarget.name}' }
+    filter {}
     
 
     
